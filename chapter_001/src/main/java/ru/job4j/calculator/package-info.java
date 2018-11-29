@@ -1,5 +1,5 @@
 /**
- * Package for calculator task.
+ * Package for calculator and fit tasks.
  *
  * @author Nikolay Zhuykov (kishinx@rambler.ru)
  * @since 29.11.2018
