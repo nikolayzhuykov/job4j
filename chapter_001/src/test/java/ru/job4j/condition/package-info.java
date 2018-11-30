@@ -1,8 +1,8 @@
 /**
- * Package for point test task.
+ * Package for point test and dummybot test tasks.
  *
  * @author Nikolay Zhuykov (kishinx@rambler.ru)
- * @since 29.11.2018
+ * @since 30.11.2018
  * @version 1
  */
 
