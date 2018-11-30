@@ -1,5 +1,5 @@
 /**
- * Package for point test and dummybot test tasks.
+ * Package for point test, dummybot test, triangle test tasks.
  *
  * @author Nikolay Zhuykov (kishinx@rambler.ru)
  * @since 30.11.2018

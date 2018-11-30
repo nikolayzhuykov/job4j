@@ -1,5 +1,5 @@
 /**
- * Package for point and dummybot tasks.
+ * Package for point, dummybot, triangle tasks.
  *
  * @author Nikolay Zhuykov (kishinx@rambler.ru)
  * @since 30.11.2018
