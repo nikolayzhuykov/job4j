@@ -1,17 +1,17 @@
 package ru.job4j.max;
 
 /**
- * Максимум из двух чисел.
+ * Максимум из нескольких чисел.
  *
  * @author Nikolay Zhuykov (kishinx@rambler.ru)
- * @since 30.11.2018
+ * @since 1.11.2018
  * @version 1
  */
 
 public class Max {
 
     /**
-     * Находим максимум.
+     * Находим максимум из двух чисел.
      * @param first первое число
      * @param second второе число
      * @return максимум
@@ -20,9 +20,14 @@ public class Max {
         return first > second ? first : second;
     }
 
+    /**
+     * Находим максимум из трех чисел.
+     * @param first первое число
+     * @param second второе число
+     * @param third третье число
+     * @return максимум
+     */
     public int max(int first, int second, int third) {
-        int temp = this.max(first, second);
-        temp = this.max(temp, third);
-        return temp;
+        return this.max(this.max(first, second), third);
     }
 }
