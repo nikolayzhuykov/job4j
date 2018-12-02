@@ -1,8 +1,8 @@
 /**
- * Package for counter task.
+ * Package for counter, factorial tasks.
  *
  * @author Nikolay Zhuykov (kishinx@rambler.ru)
- * @since 2.11.2018
+ * @since 3.11.2018
  * @version 1
  */
 
