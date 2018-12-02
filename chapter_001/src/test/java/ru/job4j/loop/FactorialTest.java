@@ -33,14 +33,4 @@ public class FactorialTest {
         int result = fact.calc(0);
         assertThat(result, is(1));
     }
-
-    /**
-     * Получаем 0 вместо ошибки.
-     */
-    @Test
-    public void whenCalculateFactorialForNegativeNumberThenZero() {
-        Factorial fact = new Factorial();
-        int result = fact.calc(-1);
-        assertThat(result, is(0));
-    }
 }

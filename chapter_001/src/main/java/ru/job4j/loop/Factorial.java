@@ -16,18 +16,10 @@ public class Factorial {
      * @return произведение множителей
      */
     public int calc(int n) {
-        if (n < 0) {
-            return 0;
-        } else {
-            if (n == 0) {
-                return 1;
-            } else {
-                int multiplier = 1;
-                for (int i = 1; i <= n; i++) {
-                    multiplier *= i;
-                }
-                return multiplier;
-            }
+        int multiplier = 1;
+        for (int i = 1; i <= n; i++) {
+            multiplier *= i;
         }
+        return multiplier;
     }
 }
