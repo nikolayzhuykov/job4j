@@ -1,65 +1,68 @@
 package ru.job4j.loop;
 
+import java.util.function.BiPredicate;
+
 /**
- * Построение пирамиды из крышек.
+ * Построение пирамиды из крышек. Произведен рефакторинг.
  *
  * @author Nikolay Zhuykov (kishinx@rambler.ru)
  * @since 6.11.2018
- * @version 1
+ * @version 2
  */
 
 public class Paint {
 
     /**
-     * Рисует правый треугольник. Во внутреннем цикле ширина равна высоте.
+     * Правый треугольник. Второй height = width.
      * @param height высота
-     * @return все добавленные символы в одну строку
+     * @return параметры для метода loopBy
      */
     public String rightTrl(int height) {
-        StringBuilder screen = new StringBuilder();
-        for (int row = 0; row != height; row++) {
-            for (int column = 0; column != height; column++) {
-                if (row >= column) {
-                    screen.append("^");
-                } else {
-                    screen.append(" ");
-                }
-            }
-            screen.append(System.lineSeparator());
-        }
-        return screen.toString();
+        return this.loopBy(
+                height,
+                height,
+                (row, column) -> row >= column
+        );
     }
 
     /**
-     * Рисует левый треугольник. Во внутреннем цикле ширина равна высоте.
+     * Левый треугольник. Второй height = width.
      * @param height высота
-     * @return все добавленные символы в одну строку
+     * @return параметры для метода loopBy
      */
     public String leftTrl(int height) {
-        StringBuilder screen = new StringBuilder();
-        for (int row = 0; row != height; row++) {
-            for (int column = 0; column != height; column++) {
-                if (row >= height - column - 1) {
-                    screen.append("^");
-                } else {
-                    screen.append(" ");
-                }
-            }
-            screen.append(System.lineSeparator());
-        }
-        return screen.toString();
+        return this.loopBy(
+                height,
+                height,
+                (row, column) -> row >= height - column - 1
+        );
     }
 
     /**
-     * Рисует пирамиду.
+     * Пирамида.
      * @param height высота пирамиды
-     * @return все добавленные символы в одну строку
+     * @return параметры для метода loopBy
      */
     public String pyramid(int height) {
+        return this.loopBy(
+                height,
+                2 * height - 1,
+                (row, column) -> (row >= height - column - 1) && (row + height - 1 >= column)
+        );
+    }
+
+    /**
+     * Рисует треугольники и пирамиду.
+     * @param height высота пирамиды
+     * @param width ширина пирамиды
+     * @param predict условие проставления крышки
+     * @return строка с добавленными символами " " и "^"
+     */
+    private String loopBy(int height, int width, BiPredicate<Integer, Integer> predict) {
         StringBuilder screen = new StringBuilder();
         for (int row = 0; row != height; row++) {
-            for (int column = 0; column != (2 * height - 1); column++) {
-                if ((row >= height - column - 1) && (row + height - 1 >= column)) {
+            for (int column = 0; column != width; column++) {
+                if (predict.test(row, column)) {
                     screen.append("^");
                 } else {
                     screen.append(" ");
