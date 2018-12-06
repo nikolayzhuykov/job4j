@@ -1,8 +1,8 @@
 /**
- * Package for counter test, factorial test tasks.
+ * Package for counter test, factorial test, board test tasks.
  *
  * @author Nikolay Zhuykov (kishinx@rambler.ru)
- * @since 3.11.2018
+ * @since 6.11.2018
  * @version 1
  */
 
