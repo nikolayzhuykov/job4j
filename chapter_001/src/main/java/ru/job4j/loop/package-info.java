@@ -1,5 +1,5 @@
 /**
- * Package for counter, factorial, board tasks.
+ * Package for counter, factorial, board, paint tasks.
  *
  * @author Nikolay Zhuykov (kishinx@rambler.ru)
  * @since 6.11.2018
