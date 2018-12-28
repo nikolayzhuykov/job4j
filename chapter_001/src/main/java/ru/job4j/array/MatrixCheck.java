@@ -5,7 +5,7 @@ package ru.job4j.array;
  *
  * @author Nikolay Zhuykov (kishinx@rambler.ru)
  * @since 28.12.2018
- * @version 1
+ * @version 1.1
  */
 public class MatrixCheck {
 
@@ -42,15 +42,9 @@ public class MatrixCheck {
      */
     public boolean mono(boolean[][] data) {
         for (int i = 0; i < data.length - 1; i++) {
-            for (int j = i; j == i; j++) {
-                if (data[i][j] != data[i + 1][j + 1]) {
-                    return false;
-                }
-            }
-            for (int j = data.length - i - 1; j == data.length - i - 1; j--) {
-                if (data[i][j] != data[i + 1][j - 1]) {
-                    return false;
-                }
+            if ((data[i][i] != data[i + 1][i + 1])
+                    || (data[i][data.length - i - 1] != data[i + 1][data.length - (i + 1) - 1])) {
+                        return false;
             }
         }
         return true;
