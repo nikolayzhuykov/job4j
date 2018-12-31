@@ -4,8 +4,8 @@ package ru.job4j.array;
  * Массив заполнен true или false.
  *
  * @author Nikolay Zhuykov (kishinx@rambler.ru)
- * @since 28.12.2018
- * @version 1
+ * @since 31.12.2018
+ * @version 1.1
  */
 public class Check {
 
@@ -21,13 +21,11 @@ public class Check {
      * @return true или false
      */
     public boolean mono(boolean[] data) {
-        boolean result = true;
         for (int i = 0; i < data.length - 1; i++) {
             if (data[i] != data[i + 1]) {
-                result = false;
-                break;
+                return false;
             }
         }
-        return result;
+        return true;
     }
 }
