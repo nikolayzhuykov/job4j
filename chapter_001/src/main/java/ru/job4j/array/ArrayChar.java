@@ -4,8 +4,8 @@ package ru.job4j.array;
  * Обертка над строкой.
  *
  * @author Nikolay Zhuykov (kishinx@rambler.ru)
- * @since 28.12.2018
- * @version 1
+ * @since 31.12.2018
+ * @version 1.1
  */
 public class ArrayChar {
 
@@ -29,14 +29,12 @@ public class ArrayChar {
      * @return true - слово начинается с префикса, иначе - false
      */
     public boolean startWith(String prefix) {
-        boolean result = true;
         char[] value = prefix.toCharArray();
         for (int i = 0; i < value.length; i++) {
             if (value[i] != data[i]) {
-                result = false;
-                break;
+                return false;
             }
         }
-        return result;
+        return true;
     }
 }
