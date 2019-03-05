@@ -5,10 +5,11 @@ import ru.job4j.puzzle.firuges.Figure;
 
 /**
  * Реализован метод isWin().
+ * Произведен рефакторинг.
  *
  * @author Nikolay Zhuykov (kishinxy@mail.ru)
- * @since 28.2.2019
- * @version 1
+ * @since 5.3.2019
+ * @version 1.1
  */
 public class Logic {
     private final int size;
@@ -66,38 +67,27 @@ public class Logic {
         return rst;
     }
 
+    /**
+     * Метод проверяет условие победы.
+     * @return true or false
+     */
     public boolean isWin() {
         int[][] table = this.convert();
-        boolean result = false;
-        for (int row = 0; row != table.length; row++) {
-            for (int column = 0; column != table.length; column++) {
+        int rowCount = 1;
+        int columnCount = 1;
+        for (int row = 0; row != table.length - 1; row++) {
+            for (int column = 0; column != table.length - 1; column++) {
                 if (table[row][column] == 1) {
-                    for (int i = 0; i != table.length - 1; i++) {
-                        if (table[row][i] == table[row][i + 1]) {
-                            result = true;
-                        } else {
-                            result = false;
-                            break;
-                        }
+                    if (table[row][column] == table[row][column + 1]) {
+                        columnCount++;
                     }
-                    if (result) {
-                        return true;
-                    }
-                    for (int i = 0; i != table.length - 1; i++) {
-                        if (table[i][column] == table[i + 1][column]) {
-                            result = true;
-                        } else {
-                            result = false;
-                            break;
-                        }
-                    }
-                    if (result) {
-                        return true;
+                    if (table[row][column] == table[row + 1][column]) {
+                        rowCount++;
                     }
                 }
             }
         }
-        return false;
+        return rowCount == this.size || columnCount == this.size;
     }
 
     public int[][] convert() {
