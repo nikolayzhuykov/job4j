@@ -8,7 +8,7 @@ import ru.job4j.puzzle.firuges.Figure;
  * Произведен рефакторинг.
  *
  * @author Nikolay Zhuykov (kishinxy@mail.ru)
- * @since 5.3.2019
+ * @since 7.3.2019
  * @version 1.1
  */
 public class Logic {
@@ -73,21 +73,22 @@ public class Logic {
      */
     public boolean isWin() {
         int[][] table = this.convert();
-        int rowCount = 1;
-        int columnCount = 1;
-        for (int row = 0; row != table.length - 1; row++) {
-            for (int column = 0; column != table.length - 1; column++) {
+        for (int row = 0; row != table.length; row++) {
+            int rowCount = 0;
+            int columnCount = 0;
+            for (int column = 0; column != table.length; column++) {
                 if (table[row][column] == 1) {
-                    if (table[row][column] == table[row][column + 1]) {
-                        columnCount++;
-                    }
-                    if (table[row][column] == table[row + 1][column]) {
-                        rowCount++;
-                    }
+                    columnCount++;
+                }
+                if (table[column][row] == 1) {
+                    rowCount++;
                 }
             }
+            if (columnCount == this.size || rowCount == this.size) {
+                return true;
+            }
         }
-        return rowCount == this.size || columnCount == this.size;
+        return false;
     }
 
     public int[][] convert() {
