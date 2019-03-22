@@ -3,16 +3,20 @@ package ru.job4j.condition;
 /**
  * Point - точка в системе координат.
  *
- * @author Nikolay Zhuykov (kishinx@rambler.ru)
- * @since 29.11.2018
- * @version 1
+ * @author Nikolay Zhuykov (kishinxy@mail.ru)
+ * @since 22.3.2019
+ * @version 1.1
  */
 public class Point {
 
     /**
-     * Координаты точки - (x,y).
+     * Это поле объекта. Оно доступно только конкретному объекту.
      */
     private final int x;
+
+    /**
+     * Это поле объекта. Оно доступно только конкретному объекту.
+     */
     private final int y;
 
     /**
@@ -34,6 +38,10 @@ public class Point {
         return Math.sqrt(
                 Math.pow(this.x - that.x, 2) + Math.pow(this.y - that.y, 2)
         );
+    }
+
+    public void info() {
+        System.out.println(String.format("Point[%s, %s]", this.x, this.y));
     }
 
     /**
